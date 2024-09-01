@@ -10,6 +10,7 @@ export const MainContent: React.FC = () => {
         <Box
           sx={{
             display: 'flex',
+            mb: 4,
             justifyContent: {
               xs: 'start',
               sm: 'start',

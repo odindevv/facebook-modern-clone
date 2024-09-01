@@ -27,13 +27,12 @@ export default [
           singleQuote: true,
           trailingComma: 'es5',
           bracketSpacing: true,
-          endOfLine: 'auto'
+          endOfLine: 'auto',
         },
       ],
       'react/react-in-jsx-scope': 'off',
       'prefer-const': 'warn',
-          "react/prop-types": "off"
-
+      'react/prop-types': 'off',
     },
   },
 ];

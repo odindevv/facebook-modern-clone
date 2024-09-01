@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import {
   Avatar,
   Divider,
@@ -19,18 +17,11 @@ import {
   Logout as LogoutIcon,
 } from '@mui/icons-material';
 import { ThemeToggleButton } from '../ThemeToggleButton';
+import { NavLink } from 'react-router-dom';
+import { useDropdownMenu } from '../../hooks/useDropdownMenu';
 
 export const AccountMenu: React.FC = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const { anchorEl, open, handleClick, handleClose } = useDropdownMenu();
 
   return (
     <>
@@ -90,7 +81,16 @@ export const AccountMenu: React.FC = () => {
           onClick={handleClose}
           sx={{ display: 'flex', justifyContent: 'space-between' }}
         >
-          <Box sx={{ display: 'flex', pr: 2 }}>
+          <Box
+            component={NavLink}
+            to="/profile"
+            sx={{
+              display: 'flex',
+              pr: 2,
+              textDecoration: 'none',
+              color: 'inherit',
+            }}
+          >
             <Avatar />
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               <Typography variant="body1">Odin Martinez</Typography>

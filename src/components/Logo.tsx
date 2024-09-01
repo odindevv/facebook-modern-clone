@@ -1,8 +1,16 @@
 import { Box, Typography } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 export const Logo: React.FC = () => {
   return (
-    <Box alignContent="center" alignItems="center">
+    <Box
+      component={NavLink}
+      to="/"
+      color="inherit"
+      alignContent="center"
+      alignItems="center"
+      sx={{ textDecoration: 'none' }}
+    >
       <Typography
         variant="h5"
         sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}

@@ -22,7 +22,7 @@ export const Post: React.FC<Props> = ({
         flexDirection: 'column',
         boxShadow: 4,
         pb: 2,
-        mt: 5,
+        mt: 2,
         bgcolor: 'primary',
       }}
     >

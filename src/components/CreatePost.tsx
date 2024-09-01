@@ -19,7 +19,6 @@ export const CreatePost: React.FC = () => {
     <Card
       sx={{
         display: 'flex',
-        mt: 4,
         gap: 2,
         boxShadow: 4,
         pt: 1,
