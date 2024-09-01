@@ -5,7 +5,7 @@ import { LoginScreen } from '../pages/LoginScreen';
 import { ProfileScreen } from '../pages/ProfileScreen';
 
 export const AppRouter: React.FC = () => {
-  const isLogged = false;
+  const isLogged = true;
   return (
     <BrowserRouter>
       <Routes>
