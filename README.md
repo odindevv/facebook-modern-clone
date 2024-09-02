@@ -2,12 +2,8 @@
 
 A simple clone of Facebook demonstrating basic functionality with protected routes and essential views. This project includes user authentication and a few core pages to illustrate the concept of a social media application.
 
-![LoginMobileView](views/LoginMobileView.png)
 ![LoginDesktopView](views/LoginDesktopView.png)
-![HomeMobileView](views/HomeMobileView.png)
 ![HomeDesktopView](views/HomeDesktopView.png)
-![HomeDesktopView2](views/HomeDesktopView2.png)
-![ProfileMobileView](views/ProfileMobileView.png)
 ![ProfileDesktopView](views/ProfileDesktopView.png)
 
 
