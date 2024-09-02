@@ -5,7 +5,7 @@ A simple clone of Facebook demonstrating basic functionality with protected rout
 ![LoginMobileView](views/LoginMobileView.png)
 ![LoginDesktopView](views/LoginDesktopView.png)
 ![HomeMobileView](views/HomeMobileView.png)
-![HomeDesktopView](views/HomeDesktopView/.png)
+![HomeDesktopView](views/HomeDesktopView.png)
 ![HomeDesktopView2](views/HomeDesktopView2.png)
 ![ProfileMobileView](views/ProfileMobileView.png)
 ![ProfileDesktopView](views/ProfileDesktopView.png)
