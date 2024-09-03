@@ -9,3 +9,13 @@ interface News {
 }
 
 type NewsList = Array<News>;
+
+interface Friend {
+  user: string;
+  username: string;
+  biography: string;
+  avatar: string;
+  header: string;
+}
+
+type FriendList = Array<Friend>;

@@ -8,9 +8,6 @@ export const SideBar: React.FC = () => {
         display: { xs: 'none', sm: 'none', md: 'block' },
       }}
     >
-      {/* {navigationItems.map((item) => (
-        <SideBarItem key={item.label} icon={item.icon} label={item.label} />
-      ))} */}
       <NavigationList />
 
       <Box mt={2}>

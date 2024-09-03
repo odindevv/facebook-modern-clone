@@ -7,14 +7,49 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
 import { Logo } from '../components/common/Logo';
 import { ModalRegister } from '../components/auth/ModalRegister';
 import { useState } from 'react';
+import { useAuthContext } from '../context/AuthContext';
+import { yupResolver } from '@hookform/resolvers/yup';
 
+interface LoginFormValues {
+  email: string;
+  password: string;
+}
+
+const schema = yup.object().shape({
+  email: yup.string().email('Invalid email').required('Email is required'),
+  password: yup
+    .string()
+    .min(6, 'Password must be at least 6 characters')
+    .required('Password is required'),
+});
 export const LoginScreen: React.FC = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const { setAuth } = useAuthContext();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormValues>({
+    resolver: yupResolver(schema),
+  });
+
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
+
+  const onSubmit = async (data: LoginFormValues) => {
+    try {
+      console.log(data);
+      setAuth(true);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Container
       maxWidth="lg"
@@ -49,6 +84,7 @@ export const LoginScreen: React.FC = () => {
         </Box>
         <Box
           component="form"
+          onSubmit={handleSubmit(onSubmit)}
           display="flex"
           flexDirection="column"
           bgcolor="inherit"
@@ -63,14 +99,20 @@ export const LoginScreen: React.FC = () => {
             label="Email"
             variant="outlined"
             size="small"
+            {...register('email')}
+            error={!!errors.email}
+            helperText={errors.email?.message}
           />
           <TextField
             type="password"
             label="Password"
             variant="outlined"
             size="small"
+            {...register('password')}
+            error={!!errors.password}
+            helperText={errors.password?.message}
           />
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" type="submit">
             Log In
           </Button>
           <Typography

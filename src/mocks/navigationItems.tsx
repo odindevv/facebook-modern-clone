@@ -14,8 +14,8 @@ interface NavigationItem {
 }
 
 export const navigationItems: Array<NavigationItem> = [
-  { icon: <NewsIcon fontSize="large" />, label: 'Latest News', href: 'news' },
-  { icon: <PeopleIcon fontSize="large" />, label: 'Friends', href: '#' },
+  { icon: <NewsIcon fontSize="large" />, label: 'Latest News', href: '/news' },
+  { icon: <PeopleIcon fontSize="large" />, label: 'Friends', href: '/friends' },
   { icon: <GroupIcon fontSize="large" />, label: 'Group', href: '#' },
   { icon: <CartIcon fontSize="large" />, label: 'Marketplace', href: '#' },
 ];

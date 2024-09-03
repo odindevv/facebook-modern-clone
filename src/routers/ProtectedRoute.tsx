@@ -1,10 +1,10 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
 interface Props {
-  isLogged: boolean;
+  isAuth: boolean;
   redirectTo: string;
 }
 
-export const ProtectedRoute: React.FC<Props> = ({ isLogged, redirectTo }) => {
-  return isLogged ? <Outlet /> : <Navigate to={redirectTo} />;
+export const ProtectedRoute: React.FC<Props> = ({ isAuth, redirectTo }) => {
+  return isAuth ? <Outlet /> : <Navigate to={redirectTo} />;
 };
