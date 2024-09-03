@@ -1,5 +1,5 @@
 import { Box, Divider, List, Typography } from '@mui/material';
-import { NavigationList } from '../NavigationList';
+import { NavigationList } from '../common/NavigationList';
 export const SideBar: React.FC = () => {
   return (
     <List

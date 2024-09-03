@@ -10,7 +10,7 @@ import {
   CardContent,
 } from '@mui/material';
 
-import { useDropdownMenu } from '../hooks/useDropdownMenu';
+import { useDropdownMenu } from '../../hooks/useDropdownMenu';
 import { PostAction } from './PostAction';
 
 export const CreatePost: React.FC = () => {

@@ -1,5 +1,5 @@
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
-import { PostUserInfo } from './post/PostUserInfo';
+import { PostUserInfo } from '../post/PostUserInfo';
 
 interface Props {
   avatar: string;

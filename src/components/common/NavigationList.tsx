@@ -4,7 +4,9 @@ import {
   ListItemText,
   useTheme,
 } from '@mui/material';
-import { navigationItems } from '../mocks/navigationItems';
+import { NavLink } from 'react-router-dom';
+
+import { navigationItems } from '../../mocks/navigationItems';
 
 export const NavigationList: React.FC = () => {
   const theme = useTheme();
@@ -14,7 +16,7 @@ export const NavigationList: React.FC = () => {
   return (
     <>
       {navigationItems.map((item) => (
-        <ListItemButton key={item.label}>
+        <ListItemButton key={item.label} component={NavLink} to={item.href}>
           <ListItemIcon
             sx={{
               color: { xs: color, sm: color, md: 'primary.main' },

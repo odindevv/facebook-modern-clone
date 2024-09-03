@@ -10,11 +10,12 @@ import {
 interface NavigationItem {
   icon: ReactElement;
   label: string;
+  href: string;
 }
 
 export const navigationItems: Array<NavigationItem> = [
-  { icon: <NewsIcon fontSize="large" />, label: 'Latest News' },
-  { icon: <PeopleIcon fontSize="large" />, label: 'Friends' },
-  { icon: <GroupIcon fontSize="large" />, label: 'Group' },
-  { icon: <CartIcon fontSize="large" />, label: 'Marketplace' },
+  { icon: <NewsIcon fontSize="large" />, label: 'Latest News', href: 'news' },
+  { icon: <PeopleIcon fontSize="large" />, label: 'Friends', href: '#' },
+  { icon: <GroupIcon fontSize="large" />, label: 'Group', href: '#' },
+  { icon: <CartIcon fontSize="large" />, label: 'Marketplace', href: '#' },
 ];

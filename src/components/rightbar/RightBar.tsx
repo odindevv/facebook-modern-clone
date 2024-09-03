@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { Advertisement } from './Advertisement';
-import { UserProfileItem } from '../UserProfileItem';
+import { UserProfileItem } from '../common/UserProfileItem';
 
 export const RightBar: React.FC = () => {
   return (

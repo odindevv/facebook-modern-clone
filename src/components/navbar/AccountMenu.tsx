@@ -16,7 +16,7 @@ import {
   AccessibilityNew as AccessibilityIcon,
   Logout as LogoutIcon,
 } from '@mui/icons-material';
-import { ThemeToggleButton } from '../ThemeToggleButton';
+import { ThemeToggleButton } from '../common/ThemeToggleButton';
 import { NavLink } from 'react-router-dom';
 import { useDropdownMenu } from '../../hooks/useDropdownMenu';
 

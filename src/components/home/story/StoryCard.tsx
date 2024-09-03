@@ -1,10 +1,4 @@
-import {
-  Box,
-  CardActionArea,
-  CardContent,
-  IconButton,
-  Typography,
-} from '@mui/material';
+import { Box, CardActionArea, CardContent, Typography } from '@mui/material';
 import { ControlPoint as ControlPointIcon } from '@mui/icons-material';
 
 interface Props {
@@ -54,9 +48,7 @@ export const StoryCard: React.FC<Props> = ({
             justifyContent: 'center',
           }}
         >
-          <IconButton>
-            <ControlPointIcon sx={{ fontSize: '3rem' }} />
-          </IconButton>
+          <ControlPointIcon sx={{ fontSize: '3rem' }} />
           <Typography variant="h6">Post Story</Typography>
         </CardContent>
       ) : (

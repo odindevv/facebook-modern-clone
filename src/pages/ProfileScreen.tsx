@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Container } from '@mui/material';
 import { NavBar } from '../components/navbar/NavBar';
-import { ImageComponent } from '../components/ImageComponent';
+import { ImageComponent } from '../components/common/ImageComponent';
 import { UserHeader } from '../components/profile/UserHeader';
 import { UserBio } from '../components/profile/UserBio';
-import { CreatePost } from '../components/CreatePost';
-import { Post } from '../components/Post';
+import { CreatePost } from '../components/common/CreatePost';
+import { Post } from '../components/common/Post';
 
 export const ProfileScreen: React.FC = () => {
   return (

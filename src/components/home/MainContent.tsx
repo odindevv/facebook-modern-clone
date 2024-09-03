@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { StorySection } from './story/StorySection';
-import { CreatePost } from '../CreatePost';
-import { Post } from '../Post';
+import { CreatePost } from '../common/CreatePost';
+import { Post } from '../common/Post';
 
 export const MainContent: React.FC = () => {
   return (

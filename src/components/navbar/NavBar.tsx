@@ -7,11 +7,11 @@ import {
   useTheme,
 } from '@mui/material';
 
-import { Logo } from '../Logo';
+import { Logo } from '../common/Logo';
 import { NotificationsIcons } from './NotificationsIcons';
 import { AccountMenu } from './AccountMenu';
 import { SearchBar } from './SearchBar';
-import { NavigationList } from '../NavigationList';
+import { NavigationList } from '../common/NavigationList';
 
 export const NavBar: React.FC = () => {
   const theme = useTheme();

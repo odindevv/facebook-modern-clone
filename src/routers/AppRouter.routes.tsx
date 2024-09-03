@@ -3,9 +3,10 @@ import { ProtectedRoute } from './ProtectedRoute';
 import { HomeScreen } from '../pages/HomeScreen';
 import { LoginScreen } from '../pages/LoginScreen';
 import { ProfileScreen } from '../pages/ProfileScreen';
+import { LatestNewsScreen } from '../pages/LatestNewsScreen';
 
 export const AppRouter: React.FC = () => {
-  const isLogged = false;
+  const isLogged = true;
   return (
     <BrowserRouter>
       <Routes>
@@ -17,6 +18,7 @@ export const AppRouter: React.FC = () => {
         <Route element={<ProtectedRoute isLogged={isLogged} redirectTo="/" />}>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/profile" element={<ProfileScreen />} />
+          <Route path="/news" element={<LatestNewsScreen />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" />} />

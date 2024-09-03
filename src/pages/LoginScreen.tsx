@@ -7,7 +7,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { Logo } from '../components/Logo';
+import { Logo } from '../components/common/Logo';
 import { ModalRegister } from '../components/auth/ModalRegister';
 import { useState } from 'react';
 
