@@ -50,30 +50,6 @@ export const LoginScreen: React.FC = () => {
     } else {
       console.log('Invalid email or password');
     }
-    // try {
-    //   const response = await fetch('/mocks/users.json');
-    //   if (!response.ok) throw new Error('Failed data fetch');
-    //   const users = await response.json();
-    //   const user = users.find(
-    //     (user: LoginFormValues) =>
-    //       user.email === data.email && user.password == data.password
-    //   );
-    //   if (!user) throw new Error('Contrase;a incorrecta o email incorrecto!');
-    //   const userData = {
-    //     name: user.name,
-    //     username: user.username,
-    //     email: user.email,
-    //     gender: user.gender,
-    //     avatar: user.avatar,
-    //     banner: user.banner,
-    //     biography: user.biography,
-    //   };
-    //   setUserData(userData);
-    //   setAuth(true);
-    //   localStorage.setItem('user', JSON.stringify(userData));
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
 
   return (
@@ -109,56 +85,63 @@ export const LoginScreen: React.FC = () => {
           </Typography>
         </Box>
         <Box
-          component="form"
-          onSubmit={handleSubmit(onSubmit)}
           display="flex"
           flexDirection="column"
-          bgcolor="inherit"
+          height="300px"
+          width="300px"
           borderRadius={2}
           boxShadow={3}
-          sx={{ height: '300px', width: '300px' }}
-          gap={2}
+          gap={1}
+          bgcolor="inherit"
           p={2}
         >
-          <TextField
-            type="email"
-            label="Email"
-            variant="outlined"
-            size="small"
-            {...register('email')}
-            error={!!errors.email}
-            helperText={errors.email?.message}
-          />
-          <TextField
-            type="password"
-            label="Password"
-            variant="outlined"
-            size="small"
-            {...register('password')}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-          />
-          <Button variant="contained" color="primary" type="submit">
-            Log In
-          </Button>
-          <Typography
-            component="a"
-            href="#"
-            variant="body2"
-            color="primary"
-            textAlign="center"
-            sx={{ textDecoration: 'none' }}
+          <Box
+            component="form"
+            onSubmit={handleSubmit(onSubmit)}
+            display="flex"
+            flexDirection="column"
+            gap={2}
           >
-            Forgot password?
-          </Typography>
-          <Divider />
-          <Button
-            variant="contained"
-            onClick={handleOpenModal}
-            sx={{ mt: 1, textTransform: 'none' }}
-          >
-            Create a new account
-          </Button>
+            <TextField
+              type="email"
+              label="Email"
+              variant="outlined"
+              size="small"
+              {...register('email')}
+              error={!!errors.email}
+              helperText={errors.email?.message}
+            />
+            <TextField
+              type="password"
+              label="Password"
+              variant="outlined"
+              size="small"
+              {...register('password')}
+              error={!!errors.password}
+              helperText={errors.password?.message}
+            />
+            <Button variant="contained" color="primary" type="submit">
+              Log In
+            </Button>
+            <Typography
+              component="a"
+              href="#"
+              variant="body2"
+              color="primary"
+              textAlign="center"
+              sx={{ textDecoration: 'none' }}
+            >
+              Forgot password?
+            </Typography>
+            <Divider />
+            <Button
+              variant="contained"
+              onClick={handleOpenModal}
+              sx={{ mt: 1, textTransform: 'none' }}
+            >
+              Create a new account
+            </Button>
+          </Box>
           <ModalRegister open={openModal} handleCloseModal={handleCloseModal} />
         </Box>
       </Stack>

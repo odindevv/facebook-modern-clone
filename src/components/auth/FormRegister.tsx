@@ -13,17 +13,23 @@ import { useForm } from 'react-hook-form';
 import { Terms } from './Terms';
 import { useAuthContext } from '../../context/AuthContext';
 export const FormRegister: React.FC = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const { setUserData, setAuth } = useAuthContext();
   const onSubmit = handleSubmit((data) => {
     const nameCompleted = data.name + ' ' + data.lastname;
-    setUserData({
+    const username = nameCompleted.trim() + '_x.xz';
+    const user = {
       name: nameCompleted,
-      username: nameCompleted + '_.xz',
+      username: username,
       email: data.email,
       gender: data.gender,
       password: data.password,
-    });
+    };
+    setUserData(user);
     setAuth(true);
   });
 
@@ -45,6 +51,8 @@ export const FormRegister: React.FC = () => {
             minLength: 3,
             maxLength: 20,
           })}
+          error={!!errors.name}
+          // helperText={errors.name?.message || ''}
         />
         <TextField
           type="text"
@@ -55,6 +63,8 @@ export const FormRegister: React.FC = () => {
             minLength: 6,
             maxLength: 30,
           })}
+          error={!!errors.lastname}
+          // helperText={errors.lastname?.message || ''}
         />
       </Box>
       <TextField
@@ -64,6 +74,8 @@ export const FormRegister: React.FC = () => {
         {...register('email', {
           required: true,
         })}
+        error={!!errors.email}
+        // helperText={errors.email?.message || ''}
       />
       <TextField
         type="password"
@@ -74,6 +86,8 @@ export const FormRegister: React.FC = () => {
           minLength: 6,
           maxLength: 20,
         })}
+        error={!!errors.password}
+        // helperText={errors.password?.message || ''}
       />
       <Box
         display="flex"
