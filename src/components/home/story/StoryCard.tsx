@@ -28,7 +28,7 @@ export const StoryCard: React.FC<Props> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: `url(${backgroundStory})`, // Cambia esta URL por la imagen que desees
+          backgroundImage: `url(${backgroundStory})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: '70%',

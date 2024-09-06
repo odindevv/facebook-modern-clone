@@ -1,8 +1,11 @@
 import { Box, Stack, Typography } from '@mui/material';
 import { Advertisement } from './Advertisement';
 import { UserProfileItem } from '../common/UserProfileItem';
+import friends from '../../mocks/friends.json';
+import { FriendList } from '../../types';
 
 export const RightBar: React.FC = () => {
+  const Friends: FriendList = friends;
   return (
     <Box
       flex={1}
@@ -36,21 +39,15 @@ export const RightBar: React.FC = () => {
           </Typography>
         </Box>
         <Stack direction="column" spacing={2}>
-          <UserProfileItem
-            avatar="https://favim.com/pd/s11/orig/7/761/7618/76188/edgy-billie-eilish-psd-Favim.com-7618804.jpg"
-            user="Evianny Lopez"
-            status="Active"
-          />
-          <UserProfileItem
-            avatar="https://wallpapercave.com/wp/wp1891962.jpg"
-            user="Cristian Carrasco"
-            status="Offline"
-          />
-          <UserProfileItem
-            avatar="https://i.pinimg.com/originals/ad/f2/e4/adf2e43db14bf8ea23a0ab99ba2a4ad0.jpg"
-            user="Diornan Garcia"
-            status="Active"
-          />
+          {Friends.map((friend) => (
+            <UserProfileItem
+              key={friend.username}
+              avatar={friend.avatar}
+              user={friend.name}
+              status="Active"
+              href={`/user/${friend.username}`}
+            />
+          ))}
         </Stack>
       </Box>
     </Box>

@@ -12,24 +12,28 @@ import {
   PersonAddAlt1 as PersonAddIcon,
   QuestionAnswer as QuestionAnswerIcon,
 } from '@mui/icons-material';
+import { User } from '../../types';
 
-export const UserHeader: React.FC = () => {
+interface Props {
+  user: User;
+}
+
+export const UserHeader: React.FC<Props> = ({ user }) => {
   return (
     <Card sx={{ mt: 4, boxShadow: 2 }}>
       <CardContent sx={{ display: 'flex', gap: { xs: 2, sm: 2, md: 3 } }}>
         <Avatar
-          src="https://i.pinimg.com/originals/db/b1/07/dbb107c31711fb06ada1b5f754f7bbb6.jpg"
+          src={user.avatar || ''}
           sx={{ width: 110, height: 110, boxShadow: 4 }}
         />
         <Box
           display="flex"
-          // flexDirection={{ xs: 'row', sm: 'row', md: 'row' }}
           justifyContent="space-between"
           alignItems="center"
           sx={{ width: '100%' }}
         >
           <Box display="flex" flexDirection="column">
-            <Typography variant="h6">Odin Martinez</Typography>
+            <Typography variant="h6">{user.name}</Typography>
             <Typography variant="body1">120 Friends</Typography>
           </Box>
           <Box

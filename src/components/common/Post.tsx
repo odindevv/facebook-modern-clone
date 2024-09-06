@@ -1,16 +1,11 @@
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { PostUserInfo } from '../post/PostUserInfo';
+import { IPost } from '../../types';
 
-interface Props {
-  avatar: string;
-  user: string;
-  date: string;
-  description: string;
-  picturePost?: string;
-}
-export const Post: React.FC<Props> = ({
+export const Post: React.FC<IPost> = ({
   avatar,
-  user,
+  name,
+  username,
   date,
   description,
   picturePost,
@@ -22,12 +17,17 @@ export const Post: React.FC<Props> = ({
         flexDirection: 'column',
         boxShadow: 4,
         pb: 2,
-        mt: 2,
+        mb: 2,
         bgcolor: 'primary',
       }}
     >
       <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
-        <PostUserInfo avatar={avatar} user={user} date={date} />
+        <PostUserInfo
+          avatar={avatar}
+          name={name}
+          username={username}
+          date={date}
+        />
         <Box display="flex" flexDirection="column" gap={2}>
           <Typography variant="body1">{description}</Typography>
         </Box>

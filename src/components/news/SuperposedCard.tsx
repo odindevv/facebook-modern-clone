@@ -51,48 +51,13 @@ export const SuperposedCard: React.FC<Props> = ({
       <CardActionArea sx={{ height: '100%' }}>
         <StyledCardMedia src={imageSrc} alt={title} />
         <StyledCardContent>
-          <TruncatedTypography
-            variant="h6"
-            gutterBottom
-            // sx={{
-            //   fontSize: {
-            //     xs: '1.5rem',
-            //     sm: '2rem',
-            //     md: '2.5rem',
-            //     lg: '1.5rem',
-            //     xl: '3rem',
-            //   },
-            // }}
-          >
+          <TruncatedTypography variant="h6" gutterBottom>
             {title}
           </TruncatedTypography>
-          <TruncatedTypography
-            variant="h5"
-            gutterBottom
-            // sx={{
-            //   fontSize: {
-            //     xs: '1rem',
-            //     sm: '1.25rem',
-            //     md: '1.5rem',
-            //     lg: '1.75rem',
-            //   },
-            // }}
-          >
+          <TruncatedTypography variant="h5" gutterBottom>
             {description}
           </TruncatedTypography>
-          <TruncatedTypography
-            variant="body1"
-            // sx={{
-            //   fontSize: {
-            //     xs: '0.75rem',
-            //     sm: '0.875rem',
-            //     md: '1rem',
-            //     lg: '1.125rem',
-            //   },
-            // }}
-          >
-            {source}
-          </TruncatedTypography>
+          <TruncatedTypography variant="body1">{source}</TruncatedTypography>
         </StyledCardContent>
       </CardActionArea>
     </CardContainer>

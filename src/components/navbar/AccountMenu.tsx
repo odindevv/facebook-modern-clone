@@ -19,10 +19,25 @@ import {
 import { ThemeToggleButton } from '../common/ThemeToggleButton';
 import { NavLink } from 'react-router-dom';
 import { useDropdownMenu } from '../../hooks/useDropdownMenu';
+import { User } from '../../types';
 
-export const AccountMenu: React.FC = () => {
+interface Props {
+  user: User;
+  logout: () => void;
+}
+
+const menuOptions = [
+  { label: 'Settings & Privancy', icon: <SettingsIcon /> },
+  { label: 'Help & Support', icon: <HelpIcon /> },
+  { label: 'Display & Accesibility', icon: <AccessibilityIcon /> },
+];
+
+export const AccountMenu: React.FC<Props> = ({ user, logout }) => {
   const { anchorEl, open, handleClick, handleClose } = useDropdownMenu();
 
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <>
       <Tooltip title="Account settings">
@@ -34,10 +49,7 @@ export const AccountMenu: React.FC = () => {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
         >
-          <Avatar
-            alt="Avatar Profile"
-            src="https://i.pinimg.com/originals/db/b1/07/dbb107c31711fb06ada1b5f754f7bbb6.jpg"
-          />
+          <Avatar alt="Avatar Profile" src={user.avatar || ''} />
         </IconButton>
       </Tooltip>
       <Menu
@@ -83,7 +95,7 @@ export const AccountMenu: React.FC = () => {
         >
           <Box
             component={NavLink}
-            to="/profile"
+            to={`/user/${user.username}`}
             sx={{
               display: 'flex',
               pr: 2,
@@ -91,38 +103,25 @@ export const AccountMenu: React.FC = () => {
               color: 'inherit',
             }}
           >
-            <Avatar />
+            <Avatar src={user.avatar || ''} />
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-              <Typography variant="body1">Odin Martinez</Typography>
+              <Typography variant="body1">{user.name}</Typography>
               <Typography variant="body2">See your profile</Typography>
             </Box>
           </Box>
           <ThemeToggleButton />
         </MenuItem>
-
         <Divider />
 
-        <MenuItem onClick={handleClose}>
+        {menuOptions.map((item) => (
+          <MenuItem key={item.label} onClick={handleClose}>
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            {item.label}
+          </MenuItem>
+        ))}
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
-            <SettingsIcon fontSize="small" />
-          </ListItemIcon>
-          Settings & Privancy
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <HelpIcon fontSize="small" />
-          </ListItemIcon>
-          Help & Support
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <AccessibilityIcon fontSize="small" />
-          </ListItemIcon>
-          Display & Accesibility
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <LogoutIcon fontSize="small" />
+            <LogoutIcon />
           </ListItemIcon>
           Logout
         </MenuItem>

@@ -1,13 +1,20 @@
 import { Button, Avatar, styled, Badge, Typography, Box } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 type Status = 'Active' | 'Offline';
 interface Props {
   avatar: string;
   user: string;
   status: Status;
+  href: string;
 }
 
-export const UserProfileItem: React.FC<Props> = ({ avatar, user, status }) => {
+export const UserProfileItem: React.FC<Props> = ({
+  avatar,
+  user,
+  status,
+  href,
+}) => {
   const isActiveStatus = status === 'Active' ? '#44b700' : '#222';
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -38,7 +45,14 @@ export const UserProfileItem: React.FC<Props> = ({ avatar, user, status }) => {
     },
   }));
   return (
-    <Box display="flex" alignItems="center" gap={2}>
+    <Box
+      display="flex"
+      alignItems="center"
+      gap={2}
+      component={NavLink}
+      to={href}
+      sx={{ textDecoration: 'none', color: 'inherit' }}
+    >
       <Button
         sx={{
           display: 'flex',

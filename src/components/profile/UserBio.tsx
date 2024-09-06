@@ -1,7 +1,11 @@
 import { Card, CardContent, Divider, Typography } from '@mui/material';
 import { ListBio } from './ListBio';
+import { User } from '../../types';
 
-export const UserBio: React.FC = () => {
+interface Props {
+  user: User;
+}
+export const UserBio: React.FC<Props> = ({ user }) => {
   return (
     <Card
       sx={{
@@ -13,7 +17,7 @@ export const UserBio: React.FC = () => {
       <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h6">Intro</Typography>
         <Typography variant="body1" textAlign="center" mt={1}>
-          Believe in yourself and you can do unbelieable things
+          {user.biography}
         </Typography>
         <Divider sx={{ mt: 2 }} />
         <ListBio />

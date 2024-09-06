@@ -20,7 +20,7 @@ export const ModalRegister: React.FC<Props> = ({ open, handleCloseModal }) => {
     maxHeight: '90vh',
     overflow: 'auto',
     '&::-webkit-scrollbar': {
-      width: '12px', //
+      width: '12px',
     },
     '&::-webkit-scrollbar-thumb': {
       backgroundColor: 'rgba(0,0,0,0.5)',

@@ -16,11 +16,11 @@ export const FriendsScreen: React.FC = () => {
           {Friends.map((friend, key) => (
             <Grid key={key} item xs={12} sm={6} md={6} lg={3}>
               <FriendCard
-                user={friend.user}
+                name={friend.name}
                 username={friend.username}
                 biography={friend.biography}
                 avatar={friend.avatar}
-                header={friend.header}
+                banner={friend.banner}
               />
             </Grid>
           ))}

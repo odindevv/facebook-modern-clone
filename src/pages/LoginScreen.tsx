@@ -14,7 +14,7 @@ import { ModalRegister } from '../components/auth/ModalRegister';
 import { useState } from 'react';
 import { useAuthContext } from '../context/AuthContext';
 import { yupResolver } from '@hookform/resolvers/yup';
-
+import { validateUser } from '../services/authService';
 interface LoginFormValues {
   email: string;
   password: string;
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
 });
 export const LoginScreen: React.FC = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const { setAuth } = useAuthContext();
+  const { setAuth, setUserData } = useAuthContext();
   const {
     register,
     handleSubmit,
@@ -42,12 +42,38 @@ export const LoginScreen: React.FC = () => {
   const handleCloseModal = () => setOpenModal(false);
 
   const onSubmit = async (data: LoginFormValues) => {
-    try {
-      console.log(data);
+    const user = await validateUser(data.email, data.password);
+    if (user) {
+      setUserData(user);
       setAuth(true);
-    } catch (error) {
-      console.log(error);
+      localStorage.setItem('user', JSON.stringify(user));
+    } else {
+      console.log('Invalid email or password');
     }
+    // try {
+    //   const response = await fetch('/mocks/users.json');
+    //   if (!response.ok) throw new Error('Failed data fetch');
+    //   const users = await response.json();
+    //   const user = users.find(
+    //     (user: LoginFormValues) =>
+    //       user.email === data.email && user.password == data.password
+    //   );
+    //   if (!user) throw new Error('Contrase;a incorrecta o email incorrecto!');
+    //   const userData = {
+    //     name: user.name,
+    //     username: user.username,
+    //     email: user.email,
+    //     gender: user.gender,
+    //     avatar: user.avatar,
+    //     banner: user.banner,
+    //     biography: user.biography,
+    //   };
+    //   setUserData(userData);
+    //   setAuth(true);
+    //   localStorage.setItem('user', JSON.stringify(userData));
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   return (
