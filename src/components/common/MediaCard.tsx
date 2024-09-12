@@ -1,25 +1,40 @@
 import { Card, CardActionArea, CardContent, CardMedia } from '@mui/material';
-import { News } from '../../types';
 import { TruncatedTypography } from './TruncatedTypography';
+import type { INews } from '../../types';
 
-export const MediaCard: React.FC<News> = ({
-  title,
+export const MediaCard: React.FC<INews> = ({
+  author,
   description,
-  imageSrc,
-  source,
+  publishedAt,
+  title,
+  urlToImage,
 }) => {
   return (
     <Card sx={{ m: 1, boxShadow: 6 }}>
       <CardActionArea>
-        <CardMedia component="img" image={imageSrc} alt={title} />
-        <CardContent>
+        <CardMedia
+          component="img"
+          image={urlToImage}
+          alt={title}
+          height="200px"
+        />
+        <CardContent sx={{ minHeight: '160px' }}>
           <TruncatedTypography variant="h6" fontWeight="bold">
             {title}
           </TruncatedTypography>
-          <TruncatedTypography variant="body1">
+          <TruncatedTypography variant="body1" gutterBottom>
             {description}
           </TruncatedTypography>
-          <TruncatedTypography variant="body2">{source}</TruncatedTypography>
+          <TruncatedTypography
+            variant="body2"
+            gutterBottom
+            color="primary.main"
+          >
+            {author}
+          </TruncatedTypography>
+          <TruncatedTypography variant="body2">
+            {publishedAt}
+          </TruncatedTypography>
         </CardContent>
       </CardActionArea>
     </Card>

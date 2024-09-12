@@ -5,6 +5,7 @@ interface Props {
   news: NewsList;
 }
 export const Feed: React.FC<Props> = ({ news }) => {
+  console.log(news);
   return (
     <Box>
       <Typography variant="h6">News</Typography>

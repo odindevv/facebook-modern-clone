@@ -33,7 +33,17 @@ interface News {
   featured: boolean;
 }
 
-type NewsList = Array<News>;
+export interface INews {
+  author: string;
+  content: string;
+  description: string;
+  publishedAt: string;
+  // source: string;
+  title: string;
+  urlToImage: string;
+}
+
+export type NewsList = Array<INews>;
 
 interface Friend {
   name: string;

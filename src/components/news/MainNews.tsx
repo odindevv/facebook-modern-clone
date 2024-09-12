@@ -7,9 +7,7 @@ interface Props {
 }
 
 export const MainNews: React.FC<Props> = ({ featuredNews }) => {
-  const newsRandom = Math.floor(Math.random() * featuredNews.length);
-  const mainNew = featuredNews[newsRandom];
-  const otherNews = featuredNews.filter((item) => item.featured);
+  const mainNew = featuredNews[0];
   return (
     <Box
       display="flex"
@@ -47,7 +45,7 @@ export const MainNews: React.FC<Props> = ({ featuredNews }) => {
       </Box>
       <Box flex={2} display="flex" flexDirection="column" gap={2}>
         <Grid container>
-          {otherNews.map((item, key) => (
+          {featuredNews.slice(1, featuredNews.length).map((item, key) => (
             <Grid
               key={key}
               item

@@ -1,17 +1,20 @@
 import { Card, CardActionArea, CardContent, styled } from '@mui/material';
 import { TruncatedTypography } from '../common/TruncatedTypography';
+import { INews } from '../../types';
 
-interface Props {
-  imageSrc: string;
-  title: string;
-  description: string;
-  source: string;
-}
-export const SuperposedCard: React.FC<Props> = ({
-  imageSrc,
-  title,
+// interface Props {
+//   imageSrc: string;
+//   title: string;
+//   description: string;
+//   source: string;
+// }
+export const SuperposedCard: React.FC<INews> = ({
+  author,
+  content,
   description,
-  source,
+  publishedAt,
+  title,
+  urlToImage,
 }) => {
   const CardContainer = styled(Card)(() => ({
     backgroundColor: '#000',
@@ -49,7 +52,7 @@ export const SuperposedCard: React.FC<Props> = ({
   return (
     <CardContainer>
       <CardActionArea sx={{ height: '100%' }}>
-        <StyledCardMedia src={imageSrc} alt={title} />
+        <StyledCardMedia src={urlToImage} alt={title} />
         <StyledCardContent>
           <TruncatedTypography variant="h6" gutterBottom>
             {title}
@@ -57,7 +60,7 @@ export const SuperposedCard: React.FC<Props> = ({
           <TruncatedTypography variant="h5" gutterBottom>
             {description}
           </TruncatedTypography>
-          <TruncatedTypography variant="body1">{source}</TruncatedTypography>
+          <TruncatedTypography variant="body1"></TruncatedTypography>
         </StyledCardContent>
       </CardActionArea>
     </CardContainer>

@@ -27,7 +27,6 @@ export const AppRouter: React.FC = () => {
               userData.password
             );
             if (isValid) {
-              console.log(userData);
               setUserData(isValid);
               setAuth(true);
             } else {
